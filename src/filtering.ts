@@ -1,5 +1,5 @@
+import { isNullOrUndefined } from "node:util";
 import { Post } from "./types";
-
 
 /**
  * Filters an array of posts to exclude posts with a 'deletedAt' timestamp.
@@ -8,8 +8,10 @@ import { Post } from "./types";
  * @returns A copy of the given array of posts without deleted posts.
  */
 export function filterOutDeletedPosts(posts: Post[]): Post[] {
-    // TODO: Implement filtering logic to exclude deleted posts
-    // Return the filtered array
+  // TODO: Implement filtering logic to exclude deleted posts
+  // Return the filtered array
 
-    return posts.filter(post => true); // FIXME: this should not return all posts
+  return posts.filter(
+    (post) => post.deletedAt === null || post.deletedAt === undefined
+  ); // FIXME: this should not return all posts
 }
